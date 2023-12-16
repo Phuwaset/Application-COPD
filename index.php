@@ -1,3 +1,26 @@
+<?php
+// include("asset/connect.php");
+if (isset($_POST['rs'])) {
+    if (empty($_POST['pw'])) {
+        echo "<script>alert('กรุณาลงข้อมูลให้ครบถ้วน')</script>";
+    } else if ($_POST['pw'] == $_POST['repw']) {
+        $name = $_POST['name'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $bd = $_POST['bd'];
+        $sex = $_POST['sex'];
+        $em = $_POST['em'];
+        $pw = $_POST['pw'];
+        query_sql($con, "insert into user_db (user_email,user_password,user_fname,user_lname,user_bd,user_sex,user_status)
+            values('$em','$pw','$fname','$lname','$bd','$sex','0')");
+        echo "<script>alert('ลงทะเบียนสำเร็จ')</script>";
+        $row = query_row($con, "select * from user_db order by user_id desc");
+        header('location:upload_img.php?id=' . $row['user_id']);
+    } else {
+        echo "<script>alert('เเก้ไขข้อมูลไม่สำเร็จหรือรหัสผ่านไม่ตรงกัน')</script>";
+    }
+}
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
