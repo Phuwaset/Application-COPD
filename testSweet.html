@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ตัวอย่าง Sweet Alert แบบไม่ต้องคลิก OK สามารถ redirect ได้อัตโนมัติ devbanban.com 2022</title>
+	<!-- sweet alert js & css -->
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+	<style>
+		body {
+			/* background: 
+        linear-gradient(#e96107, transparent),
+        linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
+        linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
+			background-image: linear-gradient(to right, rgba(230, 55, 2, 0.871), rgba(235, 164, 102, 0.84));
+		}
+	</style>
+</head>
+
+<body>
+
+	<script>
+		setTimeout(function () {
+			swal({
+				title: "Success!", //ข้อความ เปลี่ยนได้ เช่น บันทึกข้อมูลสำเร็จ!!
+				text: "Redirecting in 3 seconds.", //ข้อความเปลี่ยนได้ตามการใช้งาน
+				type: "success", //success, warning, danger
+				timer: 3000, //ระยะเวลา redirect 3000 = 3 วิ เพิ่มลดได้
+				showConfirmButton: false //ปิดการแสดงปุ่มคอนเฟิร์ม ถ้าแก้เป็น true จะแสดงปุ่ม ok ให้คลิกเหมือนเดิม
+			}, function () {
+				window.location.href = "./semseeHg.html"; //หน้าเพจที่เราต้องการให้ redirect ไป อาจใส่เป็นชื่อไฟล์ภายในโปรเจคเราก็ได้ครับ เช่น admin.php
+			});
+		});
+	</script>
+
+</body>
+
+</html>
+
+<!-- 
+คู่มือ https://sweetalert.js.org/docs/ 
+
+ตัวอย่างการนำไปใช้ภายใต้เงื่อนไขของภาษา PHP
+ ตัวอย่าง Code PHP PDO CRUD ระบบเพิ่ม ลบ แก้ไข แสดงข้อมูล เบื้องต้น  https://devbanban.com/?p=4146
+
+คอร์สออนไลน์. https://devbanban.com/?p=2867
+ระบบพร้อมใช้. https://devbanban.com/?p=4425
+สนใจ inbox มาที่ https://www.facebook.com/sornwebsites
+ซื้อคอร์สซื้อโปรแกรมกับผมแล้วปรึกษาได้เรื่อยๆ ครับ
+
+___
+ระบบหอพัก : https://www.youtube.com/watch?v=O7Bh0BNCDz8
+ระบบสอนออนไลน์ : https://www.youtube.com/watch?v=WOTLFEflkMk
+
+-->
