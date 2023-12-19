@@ -15,6 +15,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
         }
 
         body {
@@ -23,6 +24,42 @@
         linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
         linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
             background-image: linear-gradient(to right, rgba(40, 83, 226, 0.871), rgba(33, 193, 247, 0.874));
+        }
+
+        #deleteButton {
+            display: none;
+            display: none;
+            background: none;
+            /* Remove background */
+            border: none;
+            /* Remove border */
+            cursor: pointer;
+            /* Add pointer cursor */
+        }
+
+        #deleteSurnameButton {
+            display: none;
+            display: none;
+            background: none;
+            /* Remove background */
+            border: none;
+            /* Remove border */
+            cursor: pointer;
+            /* Add pointer cursor */
+        }
+
+        /* Container to hold input and delete button */
+        .input-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        /* Style for delete button */
+        .delete-button {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
         }
     </style>
 </head>
@@ -53,20 +90,34 @@
                         <form action="https://sheetdb.io/api/v1/6k7qupqgy6s3o" class="mt-5 border p-5 bg-light shadow"
                             style="border-radius: 20px;" id="sheetdb-form" method="POST">
                             <div class="row">
-                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าเบาหวาน&nbsp; &nbsp;<a href="selectForm.html"
+                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าเบาหวาน&nbsp; &nbsp;<a
+                                            href="selectForm.html"
                                             style="color: red; position: absolute; text-decoration: none;">x</a></b>
                                 </h3>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
-                                    <input type="text" name="data[first_name]" class="form-control"
-                                        placeholder="ชื่อจริง" required>
+                                    <div class="input-container">
+                                        <input type="text" id="textInput" name="data[first_name]" placeholder="ชื่อจริง"
+                                            class="form-control" oninput="toggleDeleteButton()" required>
+                                        <!-- Use an "X" character as the button content -->
+                                        <button type="button" id="deleteButton" class="delete-button"
+                                            onclick="clearText()">❌</button>
+                                    </div>
                                 </div>
+
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
-                                    <input type="text" name="data[surname]" class="form-control" placeholder="นามสกุล">
+                                    <div class="input-container">
+                                        <input type="text" id="surnameInput" name="data[surname]" placeholder="นามสกุล"
+                                            class="form-control" oninput="toggleDeleteButton()" required>
+                                        <!-- Use an "X" character as the button content -->
+                                        <button type="button" id="deleteSurnameButton" class="delete-button"
+                                            onclick="clearText()">❌</button>
+                                    </div>
                                 </div>
+
                                 <div class="mb-3 col-md-6">
                                     <label for="">วันเกิด</label>
                                     <input type="date" name="data[birthday]" class="form-control">
@@ -81,13 +132,10 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าเบาหวาน</label>
-                                    <input type="text" name="data[mgdL]" class="form-control" placeholder="ระบุหน่วยเบาหวานเช่น 126 mg/dL"
-                                        required>
+                                    <input type="text" name="data[mgdL]" class="form-control"
+                                        placeholder="ระบุหน่วยเบาหวานเช่น 126 mg/dL" required>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <!-- <label for="">ค่าเบาหวาน mg/dL</label>
-                                <input type="text" name="data[mgdL]" class="form-control" placeholder="xx % mg/dL" required>
-                            </div> -->
                                     <div class="mb-3 col-md-12">
                                         <br>
                                         <button type="submit" class="btn btn-outline-primary form-control"
@@ -123,6 +171,47 @@
                     window.location.href = 'testSweet.html';
                 });
             });
+
+            // JavaScript function to clear the text input
+            function clearText() {
+                document.getElementById('textInput').value = '';
+                document.getElementById('surnameInput').value = '';
+                toggleDeleteButton(); // Toggle the delete button after clearing text
+            }
+
+            function clearText() {
+                document.getElementById('textInput').value = '';
+                document.getElementById('surnameInput').value = '';
+                toggleDeleteButton(); // Toggle the delete button after clearing text
+            }
+
+            // JavaScript function to toggle the delete button based on text input
+            function toggleDeleteButton() {
+                var textInputValue = document.getElementById('textInput').value;
+                var deleteButton = document.getElementById('deleteButton');
+                var surnameInputValue = document.getElementById('surnameInput').value;
+                var deleteSurnameButton = document.getElementById('deleteSurnameButton');
+
+                // If there's text in the input, show the delete button; otherwise, hide it
+                switch (true) {
+                    case textInputValue.trim() !== '':
+                        deleteButton.style.display = 'inline-block';
+                        deleteSurnameButton.style.display = 'none';
+                        break;
+
+                    case surnameInputValue.trim() !== '':
+                        deleteButton.style.display = 'none';
+                        deleteSurnameButton.style.display = 'inline-block';
+                        break;
+
+                    default:
+                        deleteButton.style.display = 'none';
+                        deleteSurnameButton.style.display = 'none';
+                        break;
+                }
+            
+
+            }
 
 
         </script>
