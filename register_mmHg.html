@@ -22,7 +22,7 @@
         linear-gradient(#e96107, transparent),
         linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
         linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
-            background-image: linear-gradient(to right, rgba(233, 130, 107, 0.871), rgba(237, 237, 220, 0.874));
+            background-image: linear-gradient(to right, rgba(212, 85, 208, 0.871),  #FFB8BF);
         }
     </style>
 </head>
@@ -33,7 +33,7 @@
             <div class="position-relative m-4">
                 <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0"
                     aria-valuemax="100" style="height: 1px;">
-                    <div class="progress-bar" style=""></div>
+                    <div class="progress-bar"></div>
                 </div>
                 <button type="button"
                     class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-warning rounded-pill"
@@ -53,15 +53,15 @@
                         <form action="https://sheetdb.io/api/v1/6k7qupqgy6s3o" class="mt-5 border p-5 bg-light shadow"
                             style="border-radius: 20px;" id="sheetdb-form" method="POST">
                             <div class="row">
-                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนเข้าใช้งาน&nbsp; &nbsp;<a href="index.html"
-                                            style="color: red; position: absolute; text-decoration: none;">X</a></b>
+                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าความดัน&nbsp; &nbsp;<a href="selectForm.html"
+                                            style="color: red; position: absolute; text-decoration: none;">x</a></b>
                                 </h3>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
                                     <input type="text" name="data[first_name]" class="form-control"
-                                        placeholder="นาย จุฬาลงกรณ์" required>
+                                        placeholder="ชื่อจริง" required>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
@@ -81,8 +81,8 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าความดันโลหิต mmHg</label>
-                                    <input type="text" name="data[mmHg]" class="form-control" placeholder="xx % mmHg"
-                                        required>
+                                    <h5><input type="text" name="data[mmHg]" class="form-control" placeholder="ระบุค่าความดันเช่น 120/80 "
+                                        required></h5>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <!-- <label for="">ค่าเบาหวาน mg/dL</label>
@@ -90,8 +90,8 @@
                             </div> -->
                                     <div class="mb-3 col-md-12">
                                         <br>
-                                        <button type="submit" class="btn btn-outline-danger form-control"
-                                            onclick="fireSweetAlert()">ไปสุ่มเซียมซีกัน</button>
+                                        <button type="submit" class="btn btn-outline-success form-control"
+                                            onclick="fireSweetAlert()">กดไปสุ่มเซียมซีกัน</button>
                                         <!-- <a href="checked.html" style="text-decoration: none; color: red;">ไปสุ่มเซียมซีกัน</a> -->
                                     </div>
                                     <!-- <button class="btn btn-danger" id="errorAlert">Error alert</button> -->
