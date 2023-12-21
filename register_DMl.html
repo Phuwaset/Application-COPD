@@ -97,8 +97,8 @@
                 <div class="sign-up">
                     <div class="col-md-6 offset-md-3">
 
-                        <form action="https://sheetdb.io/api/v1/1nyazfe6d7qxa" class="mt-5 border p-5 bg-light shadow"
-                            style="border-radius: 20px;" id="sheetdb-form" method="POST">
+                        <form action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec" class="mt-5 border p-5 bg-light shadow"
+                            style="border-radius: 20px;" id="google-sheet" method="POST">
 
                             <div class="row">
                                 <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าเบาหวาน&nbsp; &nbsp;<a
@@ -110,7 +110,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
                                     <div class="input-container">
-                                        <input type="text" name="data[first_name]" id="data[first_name]"
+                                        <input type="text" name="first_name" id="data[first_name]"
                                             placeholder="ชื่อจริง" class="form-control" oninput="toggleDeleteButton()"
                                             required>
                                         <!-- Use an "X" character as the button content -->
@@ -122,7 +122,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
                                     <div class="input-container">
-                                        <input type="text" id="surnameInput" name="data[surname]" placeholder="นามสกุล"
+                                        <input type="text" id="surnameInput" name="surname" placeholder="นามสกุล"
                                             class="form-control" oninput="toggleDeleteButton1()" required>
                                         <!-- Use an "X" character as the button content -->
                                         <button type="button" id="deleteSurnameButton" class="delete-button"
@@ -132,7 +132,7 @@
 
                                 <div class="mb-3 col-md-6">
                                     <label for="">วันเกิด</label>
-                                    <input type="date" name="data[birthday]" class="form-control">
+                                    <input type="date" name="birthday" class="form-control">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">เพศ</label>
@@ -147,7 +147,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าเบาหวาน หน่วย mg/dL</label>
                                     <div class="input-container">
-                                        <input type="text" id="surnameInput" name="data[mgdL]"
+                                        <input type="text" id="surnameInput" name="mgdL"
                                             placeholder="ตัวอย่างเช่น 126 mg/dL" class="form-control"
                                             oninput="toggleDeleteButton2()" required>
                                         <!-- Use an "X" character as the button content -->
@@ -159,7 +159,7 @@
 
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าน้ำตาลเฉลี่ยสะสม HbA1C %</label>
-                                    <input type="text" name="data[HbA1C]" class="form-control"
+                                    <input type="text" name="HbA1C" class="form-control"
                                         placeholder="> เปอร์เซ็น %" required>
                                 </div>
                                 <!-- <p>localStorage & sessionStorage</p>
@@ -188,12 +188,12 @@
             crossorigin="anonymous"></script>
 
         <script>
-            var form = document.getElementById('sheetdb-form');
+            var form = document.getElementById('google-sheet');
             form.addEventListener("submit", e => {
                 e.preventDefault();
                 fetch(form.action, {
                     method: "POST",
-                    body: new FormData(document.getElementById("sheetdb-form")),
+                    body: new FormData(document.getElementById("google-sheet")),
                 }).then(
                     response => response.json()
                 ).then((html) => {

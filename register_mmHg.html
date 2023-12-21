@@ -50,8 +50,8 @@
             <div class="row">
                 <div class="sign-up">
                     <div class="col-md-6 offset-md-3">
-                        <form action="https://sheetdb.io/api/v1/1nyazfe6d7qxa" class="mt-5 border p-5 bg-light shadow"
-                            style="border-radius: 20px;" id="sheetdb-form" method="POST">
+                        <form action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec" class="mt-5 border p-5 bg-light shadow"
+                            style="border-radius: 20px;" id="google-sheet" method="POST">
                             <div class="row">
                                 <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าความดัน&nbsp; &nbsp;<a href="selectForm.html"
                                             style="color: red; position: absolute; text-decoration: none;">x</a></b>
@@ -60,20 +60,20 @@
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
-                                    <input type="text" name="data[first_name]" class="form-control"
+                                    <input type="text" name="first_name" class="form-control"
                                         placeholder="ชื่อจริง" required>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
-                                    <input type="text" name="data[surname]" class="form-control" placeholder="นามสกุล">
+                                    <input type="text" name="surname" class="form-control" placeholder="นามสกุล">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">วันเกิด</label>
-                                    <input type="date" name="data[birthday]" class="form-control">
+                                    <input type="date" name="birthday" class="form-control">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">เพศ</label>
-                                    <select name="data[gender]" class="form-control">
+                                    <select name="gender" class="form-control">
                                         <option value="ไม่ระบุเพศ">ไม่ระบุเพศ</option>
                                         <option value="ชาย">ชาย</option>
                                         <option value="หญิง">หญิง</option>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าความดันโลหิต mmHg</label>
-                                    <h5><input type="text" name="data[mmHg]" class="form-control" placeholder="ระบุค่าความดันเช่น 120/80 "
+                                    <h5><input type="text" name="mmHg" class="form-control" placeholder="ระบุค่าความดันเช่น 120/80 "
                                         required></h5>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -109,12 +109,12 @@
             crossorigin="anonymous"></script>
 
         <script>
-            var form = document.getElementById('sheetdb-form');
+            var form = document.getElementById('google-sheet');
             form.addEventListener("submit", e => {
                 e.preventDefault();
                 fetch(form.action, {
                     method: "POST",
-                    body: new FormData(document.getElementById("sheetdb-form")),
+                    body: new FormData(document.getElementById("google-sheet")),
                 }).then(
                     response => response.json()
                 ).then((html) => {
