@@ -75,29 +75,33 @@
                     <h5 class="modal-title">สวัสดี</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"> <center> 
-                    <table>
-                        <thead>
-                          <tr>
-                            <td>ชื่อจริง</td> 
-                            <td>วันเกิด</td>
-                            <td>ค่าความดันโลหิต</td>
-                        </tr>
-                        </thead>
-                        <tbody data-sheetdb-url="https://sheetdb.io/api/v1/6k7qupqgy6s3o" 
-                            data-sheetdb-sort-order="desc">
+                <div class="modal-body">
+                   
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>ชื่อจริง</td>
+                                    <td>วันเกิด</td>  
+                                    <td>ค่าความดันโลหิต</td>
+                                </tr>
+                            </thead>
+                            <tbody data-sheetdb-url="https://sheetdb.io/api/v1/6k7qupqgy6s3o"
+                            data-sheetdb-sort-by="ID"  
+                            data-sheetdb-sort-order="desc"
+                            data-sheetdb-limit="1">
                             <tr>
-                                
-                                <td>{{first_name}}</td> 
+                                <td>{{first_name}}</td>
                                 <td>{{birthday}}</td>
                                 <td>{{mmHg}}</td>
                             </tr>
                         </tbody>
-                    </table></center>
+                        </table>
+                  
                     <script src="https://sheetdb.io/handlebars.js"></script>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="semseeHg.html" style="color: white;">Reload</a></button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="semseeHg.html"
+                            style="color: white;">Reload</a></button>
                     <button type="button" class="btn btn-primary"><a href="selectForm.html"
                             style="color: white;">save</a></button>
                 </div>
