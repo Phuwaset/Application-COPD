@@ -91,7 +91,8 @@
                                     <br>
                                     <a href="testSweet.html"
                                         style="color: black; text-decoration: underline;"></a><button type="submit"
-                                        class="btn btn-outline-success form-control">กดไปสุ่มเซียมซีกัน</a></button>
+                                        class="btn btn-outline-success form-control"
+                                        id="submit-button">กดไปสุ่มเซียมซีกัน</a></button>
 
                                 </div>
                         </form>
@@ -108,8 +109,14 @@
 
         <script>
             var form = document.getElementById('google-sheet');
+            var submitButton = document.getElementById('submit-button'); // แทนที่ 'submit-button' ด้วย ID ของปุ่มจริง
+
             form.addEventListener("submit", async (e) => {
                 e.preventDefault();
+
+                // ปิดการใช้งานปุ่มหลังจากการกด
+                submitButton.disabled = true;
+
                 try {
                     const response = await fetch(form.action, {
                         method: "POST",
@@ -125,6 +132,8 @@
                     console.error('Error:', error);
                 }
             });
+
+
         </script>
 </body>
 

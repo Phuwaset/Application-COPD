@@ -92,15 +92,13 @@
                                     <h5><input type="number" name="HbA1C" class="form-control"
                                             placeholder="ระบุค่าเฉลี่ยนํ้าตาล " required></h5>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-12">
+                                    <br>
+                                    <a href="testSweet.html"
+                                        style="color: black; text-decoration: underline;"></a><button type="submit"
+                                        class="btn btn-outline-primary form-control"
+                                        id="submit-button">กดไปสุ่มเซียมซีกัน</a></button>
 
-                                    <div class="mb-3 col-md-12">
-                                        <br>
-                                        <a href="testSweet.html"
-                                            style="color: black; text-decoration: underline;"></a><button type="submit"
-                                            class="btn btn-outline-primary form-control">กดไปสุ่มเซียมซีกัน</a></button>
-
-                                    </div>
                                 </div>
                         </form>
                     </div>
@@ -116,8 +114,14 @@
 
         <script>
             var form = document.getElementById('google-sheet');
+            var submitButton = document.getElementById('submit-button'); // แทนที่ 'submit-button' ด้วย ID ของปุ่มจริง
+
             form.addEventListener("submit", async (e) => {
                 e.preventDefault();
+
+                // ปิดการใช้งานปุ่มหลังจากการกด
+                submitButton.disabled = true;
+
                 try {
                     const response = await fetch(form.action, {
                         method: "POST",
@@ -133,6 +137,8 @@
                     console.error('Error:', error);
                 }
             });
+
+
         </script>
 
 </body>
