@@ -22,7 +22,7 @@
         linear-gradient(#e96107, transparent),
         linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
         linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
-            background-image: linear-gradient(to right, rgba(59, 56, 241, 0.871),  #bdb9f0);
+            background-image: linear-gradient(to right, rgba(59, 56, 241, 0.871), #bdb9f0);
         }
     </style>
 </head>
@@ -50,18 +50,21 @@
             <div class="row">
                 <div class="sign-up">
                     <div class="col-md-6 offset-md-3">
-                        <form action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec" class="mt-5 border p-5 bg-light shadow"
-                            style="border-radius: 20px;" id="google-sheet" method="POST">
+                        <form
+                            action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec"
+                            class="mt-5 border p-5 bg-light shadow" style="border-radius: 20px;" id="google-sheet"
+                            method="POST">
                             <div class="row">
-                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าความนํ้าตาล&nbsp; &nbsp;<a href="selectForm.html"
+                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าความนํ้าตาล&nbsp; &nbsp;<a
+                                            href="selectForm.html"
                                             style="color: red; position: absolute; text-decoration: none;">x</a></b>
                                 </h3>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
-                                    <input type="text" name="first_name" class="form-control"
-                                        placeholder="ชื่อจริง" required>
+                                    <input type="text" name="first_name" class="form-control" placeholder="ชื่อจริง"
+                                        id="txtname" required>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
@@ -81,24 +84,23 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าเบาหวาน หน่วย mg/dL</label>
-                                    <h5><input type="text" name="mgdL" class="form-control" placeholder="mg/dL"
-                                        required></h5>
+                                    <h5><input type="number" name="mgdL" class="form-control" placeholder="mg/dL"
+                                            required></h5>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่านํ้าตาลเฉลี่ยสะสม HbA1C %</label>
-                                    <h5><input type="text" name="HbA1C" class="form-control" placeholder="ระบุค่าเฉลี่ยนํ้าตาล "
-                                        required></h5>
+                                    <h5><input type="number" name="HbA1C" class="form-control"
+                                            placeholder="ระบุค่าเฉลี่ยนํ้าตาล " required></h5>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <!-- <label for="">ค่าเบาหวาน mg/dL</label>
-                                <input type="text" name="data[mgdL]" class="form-control" placeholder="xx % mg/dL" required>
-                            </div> -->
+
                                     <div class="mb-3 col-md-12">
                                         <br>
-                                        <a href="testSweet.html" style="color: black; text-decoration: underline;"></a><button type="submit" class="btn btn-outline-primary form-control">กดไปสุ่มเซียมซีกัน</a></button>
-                                        <!-- <a href="checked.html" style="text-decoration: none; color: red;">ไปสุ่มเซียมซีกัน</a> -->
+                                        <a href="testSweet.html"
+                                            style="color: black; text-decoration: underline;"></a><button type="submit"
+                                            class="btn btn-outline-primary form-control">กดไปสุ่มเซียมซีกัน</a></button>
+
                                     </div>
-                                    <!-- <button class="btn btn-danger" id="errorAlert">Error alert</button> -->
                                 </div>
                         </form>
                     </div>
@@ -114,23 +116,25 @@
 
         <script>
             var form = document.getElementById('google-sheet');
-            form.addEventListener("submit", e => {
+            form.addEventListener("submit", async (e) => {
                 e.preventDefault();
-                fetch(form.action, {
-                    method: "POST",
-                    body: new FormData(document.getElementById("google-sheet")),
-                }).then(
-                    response => response.json()
-                    
-                ).then((html) => {
-                    // you can put any JS code here
+                try {
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: new FormData(document.getElementById("google-sheet")),
+                    });
+
+                    const data = await response.json();
+
+                    // Put any additional JS code here
                     // window.open('checked.html', '_blank');
                     window.location.href = 'testSweet.html';
-                });
+                } catch (error) {
+                    console.error('Error:', error);
+                }
             });
-
-
         </script>
+
 </body>
 
 </html>
