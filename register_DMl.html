@@ -15,7 +15,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-
         }
 
         body {
@@ -23,54 +22,9 @@
         linear-gradient(#e96107, transparent),
         linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
         linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
-            background-image: linear-gradient(to right, rgba(40, 83, 226, 0.871), rgba(33, 193, 247, 0.874));
-        }
-
-        #deleteButton {
-            display: none;
-            display: none;
-            background: none;
-            /* Remove background */
-            border: none;
-            /* Remove border */
-            cursor: pointer;
-            /* Add pointer cursor */
-        }
-
-        #deleteSurnameButton {
-            display: none;
-            display: none;
-            background: none;
-            /* Remove background */
-            border: none;
-            /* Remove border */
-            cursor: pointer;
-            /* Add pointer cursor */
-        }
-
-        /* Container to hold input and delete button */
-        .input-container {
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        /* Style for delete button */
-        .delete-button {
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            transform: translateY(-50%);
-        }
-
-        .delete-button1 {
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            transform: translateY(-50%);
+            background-image: linear-gradient(to right, rgba(59, 56, 241, 0.871),  #bdb9f0);
         }
     </style>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -96,85 +50,57 @@
             <div class="row">
                 <div class="sign-up">
                     <div class="col-md-6 offset-md-3">
-
                         <form action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec" class="mt-5 border p-5 bg-light shadow"
                             style="border-radius: 20px;" id="google-sheet" method="POST">
-
                             <div class="row">
-                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าเบาหวาน&nbsp; &nbsp;<a
-                                            href="selectForm.html"
+                                <h3 class="mb-5 text-secondary"><b>ลงทะเบียนและค่าความนํ้าตาล&nbsp; &nbsp;<a href="selectForm.html"
                                             style="color: red; position: absolute; text-decoration: none;">x</a></b>
                                 </h3>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">ชื่อ</label>
-                                    <div class="input-container">
-                                        <input type="text" name="first_name" id="data[first_name]"
-                                            placeholder="ชื่อจริง" class="form-control" oninput="toggleDeleteButton()"
-                                            required>
-                                        <!-- Use an "X" character as the button content -->
-                                        <button type="button" id="deleteButton" class="delete-button"
-                                            onclick="clearText()">❌</button>
-                                    </div>
+                                    <input type="text" name="first_name" class="form-control"
+                                        placeholder="ชื่อจริง" required>
                                 </div>
-
                                 <div class="mb-3 col-md-6">
                                     <label for="">นามสกุล</label>
-                                    <div class="input-container">
-                                        <input type="text" id="surnameInput" name="surname" placeholder="นามสกุล"
-                                            class="form-control" oninput="toggleDeleteButton1()" required>
-                                        <!-- Use an "X" character as the button content -->
-                                        <button type="button" id="deleteSurnameButton" class="delete-button"
-                                            onclick="clearText1()">❌</button>
-                                    </div>
+                                    <input type="text" name="surname" class="form-control" placeholder="นามสกุล">
                                 </div>
-
                                 <div class="mb-3 col-md-6">
                                     <label for="">วันเกิด</label>
                                     <input type="date" name="birthday" class="form-control">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="">เพศ</label>
-                                    <select name="data[gender]" class="form-control">
+                                    <select name="gender" class="form-control">
                                         <option value="ไม่ระบุเพศ">ไม่ระบุเพศ</option>
                                         <option value="ชาย">ชาย</option>
                                         <option value="หญิง">หญิง</option>
                                     </select>
                                 </div>
-
-
                                 <div class="mb-3 col-md-6">
                                     <label for="">ค่าเบาหวาน หน่วย mg/dL</label>
-                                    <div class="input-container">
-                                        <input type="text" id="surnameInput" name="mgdL"
-                                            placeholder="ตัวอย่างเช่น 126 mg/dL" class="form-control"
-                                            oninput="toggleDeleteButton2()" required>
-                                        <!-- Use an "X" character as the button content -->
-                                        <button type="button" id="deleteSurnameButton" class="delete-button"
-                                            onclick="clearText2()">❌</button>
-                                    </div>
+                                    <h5><input type="text" name="mgdL" class="form-control" placeholder="mg/dL"
+                                        required></h5>
                                 </div>
-
-
                                 <div class="mb-3 col-md-6">
-                                    <label for="">ค่าน้ำตาลเฉลี่ยสะสม HbA1C %</label>
-                                    <input type="text" name="HbA1C" class="form-control"
-                                        placeholder="> เปอร์เซ็น %" required>
+                                    <label for="">ค่านํ้าตาลเฉลี่ยสะสม HbA1C %</label>
+                                    <h5><input type="text" name="HbA1C" class="form-control" placeholder="ระบุค่าเฉลี่ยนํ้าตาล "
+                                        required></h5>
                                 </div>
-                                <!-- <p>localStorage & sessionStorage</p>
-                                Input your name <input type="text" id="txtName" name="txtName"> <br />
-                                Input your email <input type="text" id="txtEmail" name="txtEmail"> -->
                                 <div class="mb-3 col-md-6">
+                                    <!-- <label for="">ค่าเบาหวาน mg/dL</label>
+                                <input type="text" name="data[mgdL]" class="form-control" placeholder="xx % mg/dL" required>
+                            </div> -->
                                     <div class="mb-3 col-md-12">
                                         <br>
-                                        <button type="submit" class="btn btn-outline-primary form-control" id="btnNext"
-                                            onclick="fireSweetAlert() ">กดไปสุ่มเซียมซีกัน</button>
+                                        <button type="submit" class="btn btn-outline-success form-control"
+                                            onclick="fireSweetAlert()">กดไปสุ่มเซียมซีกัน</button>
                                         <!-- <a href="checked.html" style="text-decoration: none; color: red;">ไปสุ่มเซียมซีกัน</a> -->
                                     </div>
                                     <!-- <button class="btn btn-danger" id="errorAlert">Error alert</button> -->
                                 </div>
-
                         </form>
                     </div>
                 </div>
@@ -197,86 +123,13 @@
                 }).then(
                     response => response.json()
                 ).then((html) => {
-                    // button click
-                    $("#btnNext").click(function () {
-
-                        // set storage
-                        localStorage.setItem("sName", $("#fullname").val());
-                        localStorage.setItem("sEmail", $("#txtEmail").val());
-                        window.location.href = 'testSweet.html';
-
-                    });
-                });
-            });
-
-
-            function clearText() {
-                document.getElementById('textInput').value = '';
-                toggleDeleteButton(); // Toggle the delete button after clearing text
-            }
-            function clearText1() {
-                document.getElementById('surnameInput').value = '';
-                toggleDeleteButton();
-            }
-            function clearText2() {
-                document.getElementById('surnameInput').value = '';
-                toggleDeleteButton();
-            }
-            // JavaScript function to toggle the delete button based on text input
-            function toggleDeleteButton() {
-                var textInputValue = document.getElementById('textInput').value;
-                var deleteButton = document.getElementById('deleteButton');
-
-
-                switch (true) {
-                    case textInputValue.trim() !== '':
-                        deleteButton.style.display = 'inline-block';
-                        deleteSurnameButton.style.display = 'none';
-                        break;
-                    default:
-                        deleteButton.style.display = 'none';
-                        break;
-                }
-
-
-            }
-
-            function toggleDeleteButton1() {
-                var surnameInputValue = document.getElementById('surnameInput').value;
-                var deleteSurnameButton = document.getElementById('deleteSurnameButton');
-
-                // If there's text in the input, show the delete button; otherwise, hide it
-                switch (true) {
-
-                    case surnameInputValue.trim() !== '':
-                        deleteButton.style.display = 'none';
-                        deleteSurnameButton.style.display = 'inline-block';
-                        break;
-
-                    default:
-                        deleteSurnameButton.style.display = 'none';
-                        break;
-                }
-            }
-        </script>
-        <script>
-            $(document).ready(function () {
-
-                // validate support storage
-                if (typeof (Storage) == "undefined") {
-                    alert("Not storage support");
-                }
-
-                // button click
-                $("#btnNext").click(function () {
-
-                    // set storage
-                    localStorage.setItem("sName", $("#fullname").val());
-                    localStorage.setItem("sEmail", $("#txtEmail").val());
+                    // you can put any JS code here
+                    // window.open('checked.html', '_blank');
                     window.location.href = 'testSweet.html';
-
                 });
             });
+
+
         </script>
 </body>
 
