@@ -89,7 +89,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="semseeHg.html"
                             style="color: white;">อีกครั้ง</a></button>
-                    <button type="button" class="btn btn-primary" onclick="loadHello()">กดเพื่อดูผลเซียมซีของคุณ</button>
+                    <button type="button" class="btn btn-primary" ><a href="selectForm.html" style="color: white;">กดเพื่อดูผลเซียมซีของคุณ </a></button>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
             // Show Bootstrap Modal
             var myModal = new bootstrap.Modal(document.getElementById('myModal'));
             myModal.show();
-        }, 1000); // 3000 milliseconds (3 seconds)
+        }, 500); // 3000 milliseconds (3 seconds)
     </script>
 
     <script type="text/javascript">
@@ -131,7 +131,7 @@
 
         /* กำหนดเวลาหลังเปิดหน้าเว็บ ว่าจะให้แสดงหลังโหลดหน้าเว็บแล้วกี่วินาที  เช่น 2000 = 2 วิ */
         $(window).load(function () {
-            var timer = window.setTimeout(show, 1000);
+            var timer = window.setTimeout(show, 500);
         });
 
     </script>
