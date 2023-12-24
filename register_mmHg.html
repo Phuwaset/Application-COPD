@@ -63,9 +63,9 @@
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="">เลขบัตรประชาชน</label>
-                                    <input type="number" name="Id_people" class="form-control"
-                                        placeholder="เลขบัตรประชาชน" required>
+                                    <input type="number" name="Id_people" class="form-control" placeholder="เลขบัตรประชาชน" required oninput="validateIdNumber(this)">
                                 </div>
+                                
                                 <div class="mb-3 col-md-6">
                                     <label for="">วันเกิด</label>
                                     <input type="date" name="birthday" class="form-control">
@@ -138,7 +138,18 @@
                     console.error('Error:', error);
                 }
             });
-
+            function validateIdNumber(input) {
+                // จำกัดความยาวของเลขบัตรประชาชนเป็น 13 ตัวเลข
+                input.value = input.value.slice(0, 13);
+            
+                // ตรวจสอบว่าค่าที่ป้อนเป็นตัวเลขหรือไม่
+                var numericValue = parseInt(input.value, 10);
+                if (isNaN(numericValue)) {
+                    input.setCustomValidity('กรุณากรอกตัวเลขเท่านั้น');
+                } else {
+                    input.setCustomValidity('');
+                }
+            }
 
         </script>
 </body>
