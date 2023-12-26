@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำแนะนำ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        body {
+            /* background: 
+        linear-gradient(#e96107, transparent),
+        linear-gradient(to top left, rgba(241, 171, 121, 255), transparent),
+        linear-gradient(to top right, rgba(214, 85, 77, 255), transparent); */
+            background-image: linear-gradient(to right, rgba(212, 85, 208, 0.871), #FFB8BF);
+            font-family: 'Roboto', 'noto-sans-thai';
+
+        }
+
+        .serviceBox {
+            color: #f67d4a;
+            background: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 55px 20px 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .serviceBox:before,
+        .serviceBox:after {
+            content: "";
+            background: #f67d4a;
+            height: 45px;
+            width: 100%;
+            box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.3) inset;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .serviceBox:after {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3) inset;
+            top: auto;
+            bottom: 0;
+        }
+
+        .serviceBox .service-icon {
+            font-size: 40px;
+            margin: 0 0 10px;
+        }
+
+        .serviceBox .title {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin: 0 0 10px;
+        }
+
+        .serviceBox .description {
+            color: #777;
+            font-size: 14px;
+            line-height: 25px;
+            margin: 0;
+        }
+
+        .serviceBox.pink {
+            color: #EC6D9E;
+        }
+
+        .serviceBox.pink:before,
+        .serviceBox.pink:after {
+            background-color: #EC6D9E;
+        }
+
+        .serviceBox.purple {
+            color: #8672B9;
+        }
+
+        .serviceBox.purple:before,
+        .serviceBox.purple:after {
+            background-color: #8672B9;
+        }
+
+        .serviceBox.blue {
+            color: #5196EC;
+        }
+
+        .serviceBox.blue:before,
+        .serviceBox.blue:after {
+            background-color: #5196EC;
+        }
+
+        @media only screen and (max-width: 990px) {
+            .serviceBox {
+                margin: 0 0 30px;
+            }
+            .con
+        }
+
+    </style>
+</head>
+
+<body>
+    <br>
+    <!-- <div class="container">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="./image/ขาว.png" width="100%" height="-100%" alt="">
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img src="./image/ขาว.png" width="100%" height="-100%" alt="">
+            </div>
+        </div>
+
+    </div> -->
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox">
+                    <div class="service-icon">
+                        <span><i class="fa fa-globe"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: black;">สีขาว</h3> -->
+                    <p class="description"><img src="./image/ขาว.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);">สีเขียวอ่อน</h3> -->
+                    <p class="description"><img src="./image/เขียวอ่อน.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);"><h3>สีเขียวแก่</h3></h3> -->
+                    <p class="description"><img src="./image/เขียวแก่.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);"><h3>สีเขียวแก่</h3></h3> -->
+                    <p class="description"><img src="./image/สีเหลือง.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);"><h3>สีเขียวแก่</h3></h3> -->
+                    <p class="description"><img src="./image/สีสัม.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);"><h3>สีเขียวแก่</h3></h3> -->
+                    <p class="description"><img src="./image/สีแดง.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="serviceBox pink">
+                    <div class="service-icon">
+                        <span><i class="fa fa-rocket"></i></span>
+                    </div>
+                    <!-- <h3 class="title" style="color: rgb(0, 0, 0);"><h3>สีเขียวแก่</h3></h3> -->
+                    <p class="description"><img src="./image/สีดำ.png" width="80%" height="-100%" alt=""></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
