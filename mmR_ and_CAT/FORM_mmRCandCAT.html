@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>mmRC and CAT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(to right, rgba(59, 56, 241, 0.871), #bdb9f0);
+        }
+
+        .progress-bar {
+            width: 50%;
+            background-color: #007bff;
+        }
+
+        .progress {
+            height: 1px;
+            background-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .form-check-input {
+            margin: 0 5px;
+        }
+
+        .form-check-label {
+            margin: 0 5px;
+        }
+
+        .form-check-group {
+            /* display: flex; */
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .label-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-warning {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .btn-warning a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-danger {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .cat-group .form-check {
+            margin-bottom: 20px;
+        }
+
+        .cat-group .label-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cat-group .radio-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .cat-group .radio-group .form-check-input {
+            margin: 0 5px;
+        }
+
+        .cat-group .radio-group .form-check-label {
+            margin-left: 5px;
+        }
+
+
+        @media (max-width: 970px) {
+            .form-check-group {
+                margin-bottom: 1rem;
+            }
+
+            .radio-group {
+                /* เปลี่ยนให้เป็นคอลัมน์เพื่อให้ข้อความอยู่ด้านบน radio buttons */
+                align-items: flex-start;
+            }
+
+            .radio-group .form-check-label {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+                /* เพิ่มระยะห่างระหว่างข้อความและ radio buttons */
+            }
+
+            .radio-group .form-check-input {
+                margin-right: 0;
+                /* เอาระยะห่างด้านขวาออก */
+            }
+
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="position-relative m-4">
+            <div class="position-relative m-4">
+                <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar"></div>
+                </div>
+                <button type="button"
+                    class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-warning rounded-pill">
+                    <a href="../index.html">1</a></button>
+                <button type="button"
+                    class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-warning rounded-pill">
+                    <a href="../selectForm.html">2</a></button>
+                <button type="button"
+                    class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-danger rounded-pill">3
+                </button>
+            </div>
+            <div class="row">
+                <div class="sign-up">
+                    <div class="col-md-8 offset-md-2">
+                        <form
+                            action="https://script.google.com/macros/s/AKfycbzuVCfRiUoxd5i5z-4MKGAuEtZub6JE-3Cp0nx744jr0PDJOJfnxfEH6vbxxmdLkd6v-w/exec"
+                            class="mt-5 border p-5 bg-light shadow" style="border-radius: 20px;" id="google-sheet"
+                            method="POST">
+                            <div class="row">
+                                <h3 class="mb-5 text-secondary text-center"><b>MMRC และ CAT (COPD)&nbsp; &nbsp;<a
+                                            href="../selectForm.html"
+                                            style="color: red; text-decoration: none;">x</a></b>
+                                </h3>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="txtname">ชื่อ</label>
+                                    <input type="text" name="first_name" class="form-control" placeholder="ชื่อจริง"
+                                        id="txtname" required>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="surname">นามสกุล</label>
+                                    <input type="text" name="surname" class="form-control" placeholder="นามสกุล">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="Id_people">เลขบัตรประชาชน</label>
+                                    <input type="number" name="Id_people" class="form-control"
+                                        placeholder="เลขบัตรประชาชน" required>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="birthday">วันเกิด</label>
+                                    <input type="date" name="birthday" class="form-control">
+                                </div>
+
+                                <hr>
+                                <b>
+                                    <p>MMRC (modified British Medical Research Council)<br>
+                                        ความรู้สึกเหนื่อยในการประกอบกิจกรรมในชีวิตประจำวัน</p>
+                                </b>
+                                <br>
+                                <i>เลือกตัวเลือกที่ตรงกับผู้กรอกมากที่สุด*</i>
+                                <br><br>
+                                <div class="form-check-group-mmrc">
+                                    <input class="form-check-input" type="radio" name="breathingOption" value="1"
+                                        id="option1">
+                                    <label class="form-check-label"
+                                        for="option1">รู้สึกหายใจหอบเหนื่อยขณะออกกำลังกายอย่างหนักเท่านั้น</label>
+                                </div>
+                                <div class="form-check-group-mmrc">
+                                    <input class="form-check-input" type="radio" name="breathingOption" value="2"
+                                        id="option2">
+                                    <label class="form-check-label"
+                                        for="option2">หายใจหอบเมื่อเดินอย่างเร่งรีบบนพื้นราบหรือเมื่อเดินขึ้นที่สูงชัน</label>
+                                </div>
+                                <div class="form-check-group-mmrc">
+                                    <input class="form-check-input" type="radio" name="breathingOption" value="3"
+                                        id="option3">
+                                    <label class="form-check-label"
+                                        for="option3">เดินบนพื้นราบได้ช้ากว่าคนอื่นที่อยู่ในวัยเดียวกันเพราะหายใจเหนื่อยหรือต้องหยุดเพื่อหายใจเมื่อเดินตามปกติบน
+                                        <br> พื้นราบ</label>
+                                </div>
+                                <div class="form-check-group-mmrc">
+                                    <input class="form-check-input" type="radio" name="breathingOption" value="4"
+                                        id="option4">
+                                    <label class="form-check-label" for="option4">ต้องหยุดเพื่อหายใจหลังจากเดินได้ประมาณ
+                                        100 เมตรหรือหลังจากเดินได้สักพักบนพื้นราบ</label>
+                                </div>
+                                <div class="form-check-group-mmrc">
+                                    <input class="form-check-input" type="radio" name="breathingOption" value="5"
+                                        id="option5">
+                                    <label class="form-check-label"
+                                        for="option5">หายใจหอบมากเกินกว่าที่จะออกจากบ้านหรือหอบมาขณะแต่งตัวหรือเปลี่ยนเครื่องแต่งตัว</label>
+                                </div>
+                                <br><br>
+                                <hr>
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- CAT Group Start -->
+                                        <div class="col-12">
+                                            <b>
+                                                <p>CAT (COPD Assessment Test)<br>
+                                                    ประเมินผลของโรค COPD ที่มีผลต่อการดำเนินชีวิตและสุขภาวะ</p>
+                                            </b>
+                                            <br>
+                                            <i>เลือกตัวเลือกที่ตรงกับผู้กรอกมากที่สุด โดยให้จากเลือกอาการ <u>น้อยไปมาก
+                                                </u>* </i>
+                                            <br><br>
+
+                                            <div class="row cat-group">
+                                                <!-- Question 1 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label class="form-check-label">ข้าพเจ้าไม่เคยมีอาการไอ หรือ
+                                                                ข้าพเจ้าไอตลอดเวลา</label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="0" id="level0_1">
+                                                            <label class="form-check-label" for="level0_1">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="1" id="level1_1">
+                                                            <label class="form-check-label" for="level1_1">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="2" id="level2_1">
+                                                            <label class="form-check-label" for="level2_1">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="3" id="level3_1">
+                                                            <label class="form-check-label" for="level3_1">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="4" id="level4_1">
+                                                            <label class="form-check-label" for="level4_1">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_1" value="5" id="level5_1">
+                                                            <label class="form-check-label" for="level5_1">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 2 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label class="form-check-label">ข้าพเจ้าไม่มีเสมหะในปอดเลย
+                                                                หรือ ปอดของข้าพเจ้าเต็มไปด้วยเสมหะ</label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="0" id="level0_2">
+                                                            <label class="form-check-label" for="level0_2">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="1" id="level1_2">
+                                                            <label class="form-check-label" for="level1_2">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="2" id="level2_2">
+                                                            <label class="form-check-label" for="level2_2">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="3" id="level3_2">
+                                                            <label class="form-check-label" for="level3_2">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="4" id="level4_2">
+                                                            <label class="form-check-label" for="level4_2">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_2" value="5" id="level5_2">
+                                                            <label class="form-check-label" for="level5_2">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 3 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label
+                                                                class="form-check-label">ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลย
+                                                                หรือ
+                                                                ข้าพเจ้ารู้สึกแน่นหน้าอกมาก</label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="0" id="level0_3">
+                                                            <label class="form-check-label" for="level0_3">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="1" id="level1_3">
+                                                            <label class="form-check-label" for="level1_3">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="2" id="level2_3">
+                                                            <label class="form-check-label" for="level2_3">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="3" id="level3_3">
+                                                            <label class="form-check-label" for="level3_3">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="4" id="level4_3">
+                                                            <label class="form-check-label" for="level4_3">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_3" value="5" id="level5_3">
+                                                            <label class="form-check-label" for="level5_3">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 4 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label
+                                                                class="form-check-label">เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                                                                ข้าพเจ้ายังคงหายใจได้คล่อง หริอ
+                                                                เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น ข้าพเจ้า
+                                                                รู้สึกเหนื่อยหอบอย่างมาก
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="0" id="level0_4">
+                                                            <label class="form-check-label" for="level0_4">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="1" id="level1_4">
+                                                            <label class="form-check-label" for="level1_4">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="2" id="level2_4">
+                                                            <label class="form-check-label" for="level2_4">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="3" id="level3_4">
+                                                            <label class="form-check-label" for="level3_4">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="4" id="level4_4">
+                                                            <label class="form-check-label" for="level4_4">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_4" value="5" id="level5_4">
+                                                            <label class="form-check-label" for="level5_4">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 5 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label
+                                                                class="form-check-label">ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัด
+                                                                หรือ ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="0" id="level0_5">
+                                                            <label class="form-check-label" for="level0_5">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="1" id="level1_5">
+                                                            <label class="form-check-label" for="level1_5">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="2" id="level2_5">
+                                                            <label class="form-check-label" for="level2_5">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="3" id="level3_5">
+                                                            <label class="form-check-label" for="level3_5">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="4" id="level4_5">
+                                                            <label class="form-check-label" for="level4_5">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="5" id="level5_5">
+                                                            <label class="form-check-label" for="level5_5">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Question 6 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label
+                                                                class="form-check-label">ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่
+                                                                ปอดข้าพเจ้ามีปัญหา หรือ
+                                                                ข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้าน
+                                                                เพราะปอดข้าพเจ้ามีปัญหา </label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="0" id="level0_5">
+                                                            <label class="form-check-label" for="level0_5">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="1" id="level1_5">
+                                                            <label class="form-check-label" for="level1_5">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="2" id="level2_5">
+                                                            <label class="form-check-label" for="level2_5">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="3" id="level3_5">
+                                                            <label class="form-check-label" for="level3_5">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="4" id="level4_5">
+                                                            <label class="form-check-label" for="level4_5">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="5" id="level5_5">
+                                                            <label class="form-check-label" for="level5_5">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 7 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label class="form-check-label">ข้าพเจ้านอนหลับสนิท หรือ
+                                                                ข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา </label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="0" id="level0_5">
+                                                            <label class="form-check-label" for="level0_5">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="1" id="level1_5">
+                                                            <label class="form-check-label" for="level1_5">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="2" id="level2_5">
+                                                            <label class="form-check-label" for="level2_5">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="3" id="level3_5">
+                                                            <label class="form-check-label" for="level3_5">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="4" id="level4_5">
+                                                            <label class="form-check-label" for="level4_5">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="5" id="level5_5">
+                                                            <label class="form-check-label" for="level5_5">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Question 8 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-check-group">
+                                                        <div class="label-container">
+                                                            <label
+                                                                class="form-check-label">ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมาก
+                                                                หริอ ข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า</label>
+                                                        </div>
+                                                        <div class="radio-group">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="0" id="level0_5">
+                                                            <label class="form-check-label" for="level0_5">0</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="1" id="level1_5">
+                                                            <label class="form-check-label" for="level1_5">1</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="2" id="level2_5">
+                                                            <label class="form-check-label" for="level2_5">2</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="3" id="level3_5">
+                                                            <label class="form-check-label" for="level3_5">3</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="4" id="level4_5">
+                                                            <label class="form-check-label" for="level4_5">4</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                name="severity_5" value="5" id="level5_5">
+                                                            <label class="form-check-label" for="level5_5">5</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button type="submit " class="btn btn-primary">ส่ง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-QoP4VLV2rcB16+n1WqgqpJ8d5w27EY9f/7s8XZ/8fr6M1Svlu3Pxs0lf1EkpI6y6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
 html,
@@ -33,13 +34,13 @@ body {
 }
 
 
-.bar {
+/* .bar {
     width: 40%;
     display: block;
     text-align: center;
     justify-content: center;
     justify-items: center;
-}
+} */
 
 .container .row h1 {
 
@@ -107,4 +108,31 @@ body {
         width: 100%;
         color: white;
     }
+    .slider-container {
+        width: 300px;
+        height: 50px;
+        background-color: #ddd;
+        border-radius: 25px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slide-button {
+        width: 100px;
+        height: 50px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        position: absolute;
+        left: 0;
+        transition: left 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .slid {
+        left: 200px !important;
+        background-color: orange !important;
+    }
+
 }
