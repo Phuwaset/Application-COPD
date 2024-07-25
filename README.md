@@ -2,11 +2,11 @@
 Application for think innovation\
 
 
-https://appforthinkinnovation.netlify.app/
+https://copdlampang.netlify.app/
 
-https://docs.google.com/spreadsheets/d/1JPt4rgWrW36_N7cSq3INYW-4UOGYU-OofI4F86HQs3A/edit#gid=0
+https://docs.google.com/spreadsheets/d/1ug78DaHiUPz2RlPhj8f_jQa1dYa13FMJpTdfoh71p44/edit?gid=0#gid=0
 
-https://script.google.com/home/projects/1Fiq7Xl6QdmYWb22ifcr7IYnmVH-NDdkoW4UX7ivsGaFLBdiymh2IZGXc/edit
+https://script.google.com/u/0/home/projects/1OaVmxAKpK_cLZVVUiora-fnvPyZrOQnROWIaR8B3tV7eK9JNYfT_OCSw/edit
 
 // audeio sound online
 https://jukehost.co.uk/library
