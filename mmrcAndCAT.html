@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>mmRC and CAT</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+
+  <title>mmRC and CAT</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: linear-gradient(to right, rgba(59, 56, 241, 0.871), #bdb9f0);
+    }
+
+    .progress-bar {
+      width: 50%;
+      background-color: #007bff;
+    }
+
+    .progress {
+      height: 1px;
+      background-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .form-check-input {
+      margin: 0 5px;
+    }
+
+    .form-check-label {
+      margin: 0 5px;
+    }
+
+    .form-check-group {
+      /* display: flex; */
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
+    .label-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-warning {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .btn-warning a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-danger {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .cat-group .form-check {
+      margin-bottom: 20px;
+    }
+
+    .cat-group .label-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .cat-group .radio-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .cat-group .radio-group .form-check-input {
+      margin: 0 5px;
+    }
+
+    .cat-group .radio-group .form-check-label {
+      margin-left: 5px;
+    }
+
+    .hidden-input {
+      display: none;
+    }
+
+    @media (max-width: 970px) {
+      .form-check-group {
+        margin-bottom: 1rem;
+      }
+
+      .radio-group {
+        /* เปลี่ยนให้เป็นคอลัมน์เพื่อให้ข้อความอยู่ด้านบน radio buttons */
+        align-items: flex-start;
+      }
+
+      .radio-group .form-check-label {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        /* เพิ่มระยะห่างระหว่างข้อความและ radio buttons */
+      }
+
+      .radio-group .form-check-input {
+        margin-right: 0;
+        /* เอาระยะห่างด้านขวาออก */
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="position-relative m-4">
+      <div class="position-relative m-4">
+        <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0"
+          aria-valuemax="100">
+          <div class="progress-bar"></div>
+        </div>
+        <button type="button"
+          class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-warning rounded-pill">
+          <a href="../index.html">1</a></button>
+        <button type="button"
+          class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-warning rounded-pill">
+          <a href="../selectForm.html">2</a></button>
+        <button type="button"
+          class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-danger rounded-pill">3
+        </button>
+      </div>
+      <div class="row">
+        <div class="sign-up">
+          <div class="col-md-8 offset-md-2">
+            <form id="myForm" class="mt-5 border p-5 bg-light shadow" style="border-radius: 20px;">
+              <div class="row">
+                <h3 class="mb-5 text-secondary text-center"><b>MMRC และ CAT (COPD)&nbsp; &nbsp;<a
+                      href="../selectForm.html" style="color: red; text-decoration: none;">x</a></b>
+                </h3>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <label for="name">ชื่อ</label>
+                  <input type="text" class="form-control" placeholder="ชื่อจริง" id="name" name="name" required>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="surname">นามสกุล</label>
+                  <input type="text" id="surname" name="surname" class="form-control" placeholder="นามสกุล">
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="Id_people">เลขบัตรประชาชน</label>
+                  <input type="number" id="Id_people" name="Id_people" class="form-control" placeholder="เลขบัตรประชาชน"
+                    required>
+                </div>
+                <div class="mb-3 col-md-2">
+                  <label for="age">อายุ</label>
+                  <input type="number" name="age" id="age" class="form-control" placeholder="XX" required>
+                </div>
+
+                <hr>
+                <b>
+                  <p>MMRC (modified British Medical Research Council)<br>
+                    ความรู้สึกเหนื่อยในการประกอบกิจกรรมในชีวิตประจำวัน</p>
+                </b>
+                <br>
+                <i>เลือกตัวเลือกที่ตรงกับผู้กรอกมากที่สุด*</i>
+
+                <br><br>
+
+                <div class="form-check-group-mmrc">
+                  <input class="form-check-input" type="radio" name="mmrc_detail"
+                    value="รู้สึกหายใจหอบเหนื่อยขณะออกกำลังกายอย่างหนักเท่านั้น" id="mmrc_detail1"
+                    onclick="updateLevel(1)">
+                  <input type="hidden" name="level_mmrc" id="level_mmrc1" value="1">
+                  <label class="form-check-label" for="mmrc_detail1">
+                    รู้สึกหายใจหอบเหนื่อยขณะออกกำลังกายอย่างหนักเท่านั้น
+                  </label>
+                </div>
+
+                <div class="form-check-group-mmrc">
+                  <input class="form-check-input" type="radio" name="mmrc_detail"
+                    value="หายใจหอบเมื่อเดินอย่างเร่งรีบบนพื้นราบหรือเมื่อเดินขึ้นที่สูงชัน" id="mmrc_detail2"
+                    onclick="updateLevel(2)">
+                  <input type="hidden" name="level_mmrc" id="level_mmrc2" value="2">
+                  <label class="form-check-label" for="mmrc_detail2">
+                    หายใจหอบเมื่อเดินอย่างเร่งรีบบนพื้นราบหรือเมื่อเดินขึ้นที่สูงชัน
+                  </label>
+                </div>
+
+                <div class="form-check-group-mmrc">
+                  <input class="form-check-input" type="radio" name="mmrc_detail"
+                    value="เดินบนพื้นราบได้ช้ากว่าคนอื่นที่อยู่ในวัยเดียวกันเพราะหายใจเหนื่อยหรือต้องหยุดเพื่อหายใจเมื่อเดินตามปกติบนพื้นราบ"
+                    id="mmrc_detail3" onclick="updateLevel(3)">
+                  <input type="hidden" name="level_mmrc" id="level_mmrc3" value="3">
+                  <label class="form-check-label"
+                    for="mmrc_detail">เดินบนพื้นราบได้ช้ากว่าคนอื่นที่อยู่ในวัยเดียวกันเพราะหายใจเหนื่อยหรือต้องหยุดเพื่อหายใจเมื่อเดินตามปกติบน
+                    <br> พื้นราบ</label>
+                </div>
+
+                <div class="form-check-group-mmrc">
+                  <input class="form-check-input" type="radio" name="mmrc_detail"
+                    value="ต้องหยุดเพื่อหายใจหลังจากเดินได้ประมาณ 100 เมตรหรือหลังจากเดินได้สักพักบนพื้นราบ"
+                    id="mmrc_detail4" onclick="updateLevel(4)">
+                  <input type="hidden" name="level_mmrc" id="level_mmrc4" value="4">
+                  <label class="form-check-label" for="mmrc_detail">ต้องหยุดเพื่อหายใจหลังจากเดินได้ประมาณ
+                    100 เมตรหรือหลังจากเดินได้สักพักบนพื้นราบ</label>
+                </div>
+
+                <div class="form-check-group-mmrc">
+                  <input class="form-check-input" type="radio" name="mmrc_detail"
+                    value="หายใจหอบมากเกินกว่าที่จะออกจากบ้านหรือหอบมาขณะแต่งตัวหรือเปลี่ยนเครื่องแต่งตัว"
+                    id="mmrc_detail5" onclick="updateLevel(5)">
+                  <input type="hidden" name="level_mmrc" id="level_mmrc5" value="5">
+                  <label class="form-check-label"
+                    for="mmrc_detail">หายใจหอบมากเกินกว่าที่จะออกจากบ้านหรือหอบมาขณะแต่งตัวหรือเปลี่ยนเครื่องแต่งตัว</label>
+                </div>
+
+                <br><br>
+
+                <hr>
+
+                <div class="container">
+                  <div class="row">
+                    <!-- CAT Group Start -->
+                    <div class="col-12">
+                      <b>
+                        <p>CAT (COPD Assessment Test)<br>
+                          ประเมินผลของโรค COPD ที่มีผลต่อการดำเนินชีวิตและสุขภาวะ</p>
+                      </b>
+                      <br>
+                      <i>เลือกตัวเลือกที่ตรงกับผู้กรอกมากที่สุด โดยให้จากเลือกอาการ <u>น้อยไปมาก
+                        </u>* </i>
+                      <br><br>
+
+                      <div class="row cat-group">
+                        <!-- Question 1 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label class="form-check-label" for="cat_detail_1">
+                                ข้าพเจ้าไม่เคยมีอาการไอ หรือ ข้าพเจ้าไอตลอดเวลา</label>
+                            </div>
+                            <div class="radio-group">
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="0" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">0</label>
+
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="1" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">1</label>
+
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="2" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">2</label>
+
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="3" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="4" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT" value="5" id="level_CAT">
+                              <input type="hidden" name="cat_detail" id="cat_detail"
+                                value="ข้าพเจ้าไม่เคยมีอาการไอหรือข้าพเจ้าไอตลอดเวลา">
+                              <label class="form-check-label" for="cat_detail">5</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label class="form-check-label">ข้าพเจ้าไม่มีเสมหะในปอดเลย
+                                หรือ ปอดของข้าพเจ้าเต็มไปด้วยเสมหะ</label>
+                            </div>
+
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="0"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_detail_1" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="1"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_detail_1" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="2"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_detail_1" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="3"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_detail_1" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="4"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_detail_1" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_1" value="5"
+                                id="level_CAT_1">
+                              <input type="hidden" name="cat_dcat_detail_1etail" id="cat_detail_1"
+                                value="ข้าพเจ้าไม่มีเสมหะในปอดเลยหรือปอดของข้าพเจ้าเต็มไปด้วยเสมหะ">
+                              <label class="form-check-label" for="cat_detail_1">5</label>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label class="form-check-label">ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลย
+                                หรือ
+                                ข้าพเจ้ารู้สึกแน่นหน้าอกมาก</label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="0"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="1"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="2"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="3"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="4"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_2" value="5"
+                                id="level_CAT_2">
+                              <input type="hidden" name="cat_detail_2" id="cat_detail_2"
+                                value="ข้าพเจ้าไม่รู้สึกแน่นหน้าอกเลยหรือข้าพเจ้ารู้สึกแน่นหน้าอกมาก">
+                              <label class="form-check-label" for="cat_detail_2">5</label>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label class="form-check-label">เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                                ข้าพเจ้ายังคงหายใจได้คล่อง หริอ
+                                เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น ข้าพเจ้า
+                                รู้สึกเหนื่อยหอบอย่างมาก
+                              </label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="0"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="1"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="2"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="3"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="4"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_3" value="5"
+                                id="level_CAT_3">
+                              <input type="hidden" name="cat_detail_3" id="cat_detail_3"
+                                value="เมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้น
+                              ข้าพเจ้ายังคงหายใจได้คล่องหริอเมื่อข้าพเจ้าเดินขึ้นเนินหรือขึ้นบันไดหนึ่งชั้นข้าพเจ้ารู้สึกเหนื่อยหอบอย่างมาก">
+                              <label class="form-check-label" for="cat_detail_3">5</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label
+                                class="form-check-label">ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก
+                              </label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="0"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="1"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="2"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="3"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="4"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_4" value="5"
+                                id="level_CAT_4">
+                              <input type="hidden" name="cat_detail_4" id="cat_detail_4"
+                                value="ข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้โดยไม่จำกัดหรือข้าพเจ้าทำกิจกรรมต่างๆที่บ้านได้อย่างจำกัดมาก">
+                              <label class="form-check-label" for="cat_detail_4">5</label>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Question 6 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label
+                                class="form-check-label">ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา
+                                หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา </label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="0"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="1"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="2"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="3"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="4"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_5" value="5"
+                                id="level_CAT_5">
+                              <input type="hidden" name="cat_detail_5" id="cat_detail_5"
+                                value="ข้าพเจ้ามีความมั่นใจที่จะออกไปนอกบ้านทั้งๆที่ปอดข้าพเจ้ามีปัญหา หรือข้าพเจ้าไม่มีความมั่นใจเลยที่จะออกไปนอกบ้านเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_5">5</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label
+                                class="form-check-label">ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา
+                              </label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="0"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="1"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="2"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="3"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="4"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_6" value="5"
+                                id="level_CAT_6">
+                              <input type="hidden" name="cat_detail_6" id="cat_detail_6"
+                                value="ข้าพเจ้านอนหลับสนิทหรือข้าพเจ้านอนหลับไม่สนิทเพราะปอดข้าพเจ้ามีปัญหา">
+                              <label class="form-check-label" for="cat_detail_6">5</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Question 8 -->
+                        <div class="col-md-12">
+                          <div class="form-check-group">
+                            <div class="label-container">
+                              <label
+                                class="form-check-label">ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า</label>
+                            </div>
+                            <div class="radio-group">
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="0"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">0</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="1"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">1</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="2"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">2</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="3"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">3</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="4"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">4</label>
+
+                              <input class="form-check-input" type="radio" name="level_CAT_7" value="5"
+                                id="level_CAT_7">
+                              <input type="hidden" name="cat_detail_7" id="cat_detail_7"
+                                value="ข้าพเจ้ารู้สึกกระฉับกระเฉงอย่างมากหริอข้าพเจ้ารู้สึกอ่อนเพลียและเหนื่อยล้า">
+                              <label class="form-check-label" for="cat_detail_7">5</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input type="button" value="ส่ง" class="btn btn-primary col-2 mx-2" id="submitButton"
+                  onclick="submitForm()">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="output"></div> -->
+    </div>
+  </div>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function updateLevel(level) {
+      document.getElementById('level_mmrc1').value = level;
+      document.getElementById('level_mmrc2').value = level;
+      document.getElementById('level_mmrc3').value = level;
+      document.getElementById('level_mmrc4').value = level;
+      document.getElementById('level_mmrc5').value = level;
+      // level_CAT
+    }
+
+    function updateLevelCAT(levels) {
+      document.getElementById('cat_detail0').value = levels;
+      document.getElementById('cat_detail1').value = levels;
+    }
+
+    function submitForm() {
+      // ปิดการใช้งานปุ่มหลังจากคลิก
+      document.getElementById('submitButton').disabled = true;
+
+      var form = document.getElementById('myForm');
+      var formData = new FormData(form);
+
+      fetch('https://script.google.com/macros/s/AKfycbxm8t-gawuwewsgHWRvC-UKSURjVu5ehAQACdbqefMHLe4UoUPF4_iYaTZla3NsIufmgQ/exec', {
+        method: 'POST',
+        body: new URLSearchParams(formData)
+      })
+        .then(response => response.text())
+        .then(data => {
+          Swal.fire({
+            title: 'สำเร็จ!',
+            text: 'ฟอร์มของคุณถูกส่งแล้ว',
+            icon: 'success',
+            confirmButtonText: 'ตกลง'
+          }).then(() => {
+            // Redirect to another HTML page after successful form submission
+            window.location.href = 'selectForm.html'; // Replace 'success.html' with the actual URL of your target page
+          });
+        })
+        .catch(error => {
+          Swal.fire({
+            title: 'เกิดข้อผิดพลาด!',
+            text: 'ไม่สามารถส่งฟอร์มได้',
+            icon: 'error',
+            confirmButtonText: 'ตกลง'
+          });
+          // เปิดการใช้งานปุ่มอีกครั้งในกรณีที่มีข้อผิดพลาด
+          document.getElementById('submitButton').disabled = false;
+        });
+    }
+  </script>
+
+</body>
+
+</html>
